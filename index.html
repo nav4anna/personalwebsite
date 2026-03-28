@@ -350,6 +350,80 @@
     }
     .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
 
+    /* ── DOGGO ── */
+    .doggo {
+      background: linear-gradient(135deg, #FFF8F6 0%, #FFF0EE 50%, #FFF5F0 100%);
+      overflow: hidden;
+    }
+    .doggo-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; max-width: 1050px; margin: 0 auto;
+    }
+    .doggo-frame {
+      position: relative; display: flex; justify-content: center;
+    }
+    .doggo-frame::before {
+      content: ''; position: absolute; inset: -12px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #FFD1C8, #FFE5DF, #FFEEE8, #FFD1C8);
+      z-index: 0; animation: framePulse 4s ease-in-out infinite;
+    }
+    @keyframes framePulse {
+      0%,100% { transform: rotate(0deg) scale(1); }
+      50%     { transform: rotate(1deg) scale(1.01); }
+    }
+    .doggo-photos {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: .8rem;
+    }
+    .doggo-img {
+      width: 100%; border-radius: 20px;
+      object-fit: cover; aspect-ratio: 3/4;
+      border: 4px solid #fff;
+      box-shadow: 0 12px 36px rgba(255,127,107,.18);
+    }
+    .doggo-img.tilt-l { transform: rotate(-2deg); object-position: 40% 85%; }
+    .doggo-img.tilt-r { transform: rotate(2deg); }
+    .doggo-paw {
+      position: absolute; z-index: 2;
+      font-size: 1.6rem; background: #fff;
+      width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+    }
+    .doggo-paw.p1 { top: -10px; right: 20px; animation: float 3s ease-in-out infinite; }
+    .doggo-paw.p2 { bottom: -8px; left: 30px; animation: float 3s ease-in-out infinite 1s; }
+    .doggo-paw.p3 { top: 40%; left: -16px; animation: float 3s ease-in-out infinite .5s; }
+
+    .doggo-content h3 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.5rem; color: var(--dark); margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .doggo-content h3 span { color: var(--coral); }
+    .doggo-content p {
+      color: var(--mid); line-height: 1.8; margin-bottom: .8rem; font-size: .95rem;
+    }
+    .doggo-facts {
+      display: flex; flex-direction: column; gap: .7rem;
+      margin-top: 1.4rem;
+    }
+    .doggo-fact {
+      display: flex; align-items: flex-start; gap: .7rem;
+      background: #fff; padding: .8rem 1rem; border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    }
+    .doggo-fact-icon {
+      font-size: 1.3rem; min-width: 28px; text-align: center; padding-top: 2px;
+    }
+    .doggo-fact p { margin: 0; font-size: .88rem; color: var(--mid); line-height: 1.5; }
+    .doggo-fact strong { color: var(--dark); }
+
+    @media (max-width: 900px) {
+      .doggo-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .doggo-facts { align-items: center; }
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--dark); color: rgba(255,255,255,.7);
@@ -382,11 +456,85 @@
       nav .nav-links { display: none; }
     }
 
+    /* ── REVIEWS (WhatsApp style) ── */
+    .reviews { background: var(--white); }
+    .reviews-head { text-align: center; margin-bottom: 2.5rem; }
+    .reviews-head .section-sub { margin: 0 auto; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem; max-width: 900px; margin: 0 auto;
+    }
+    .wa-chat {
+      background: #E5DDD5;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ccc4b8' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      border-radius: 18px; padding: 0 .8rem .8rem;
+      display: flex; flex-direction: column; gap: .35rem;
+      box-shadow: 0 3px 14px rgba(0,0,0,.08);
+      position: relative; overflow: hidden;
+    }
+    .wa-chat::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 44px; background: #075E54; z-index: 1;
+    }
+    .wa-header {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; gap: .5rem;
+      padding: .35rem .3rem .4rem; margin-bottom: .15rem;
+    }
+    .wa-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #128C7E; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .wa-name { color: #fff; font-weight: 700; font-size: .8rem; }
+    .wa-child { color: rgba(255,255,255,.65); font-size: .68rem; }
+
+    .wa-bubble {
+      max-width: 88%; padding: .45rem .65rem .25rem;
+      border-radius: 8px; font-size: .8rem; line-height: 1.45;
+      position: relative; word-wrap: break-word;
+    }
+    .wa-bubble .wa-time {
+      font-size: .62rem; color: #999; float: right;
+      margin-left: .6rem; margin-top: .2rem;
+    }
+    .wa-incoming {
+      background: #fff; color: #303030;
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+      box-shadow: 0 1px 1px rgba(0,0,0,.06);
+    }
+    .wa-outgoing {
+      background: #DCF8C6; color: #303030;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+      box-shadow: 0 1px 1px rgba(0,0,0,.06);
+    }
+    .wa-outgoing .wa-time { color: #7eb87e; }
+    .wa-checks { font-size: .58rem; color: #4FC3F7; margin-left: 2px; }
+    .wa-reaction {
+      display: inline-flex; align-items: center;
+      background: #fff; border-radius: 50px;
+      padding: .05rem .3rem; font-size: .7rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+      position: relative; margin-top: -4px;
+      align-self: flex-start;
+    }
+    .wa-reaction.right { align-self: flex-end; }
+    .wa-label {
+      text-align: center; margin-top: .4rem;
+      font-size: .75rem; font-weight: 700; color: var(--mid);
+    }
+    .wa-label span { color: var(--coral); }
+
     @media (max-width: 600px) {
       section { padding: 60px 5%; }
       .hero-photo { width: 230px; height: 280px; }
       .hero-float.f1, .hero-float.f2 { display: none; }
       .contact-cards { flex-direction: column; align-items: center; }
+      .reviews-grid { grid-template-columns: 1fr; max-width: 400px; }
     }
   </style>
 </head>
@@ -399,6 +547,7 @@
     <li><a href="#about">Про мене</a></li>
     <li><a href="#services">Послуги</a></li>
     <li><a href="#materials">Матеріали</a></li>
+    <li><a href="#reviews">Відгуки</a></li>
     <li><a href="#contact">Контакти</a></li>
   </ul>
   <a class="nav-cta" href="#contact">Записатись</a>
@@ -455,7 +604,7 @@
 <!-- ══════ ABOUT ══════ -->
 <section class="about" id="about">
   <div class="about-img-wrap">
-    <img class="about-img" src="images_web/about.jpg" alt="Анна на уроці" />
+    <img class="about-img" src="images_web/flag phone.jpg" alt="Анна з британським прапором" />
     <div class="about-accent">
       <strong>❤️ 200+</strong>
       <span>задоволених учнів</span>
@@ -476,6 +625,41 @@
       <span class="chip mint">🏠 Домашнє навчання</span>
       <span class="chip lav">👶 Від 3 до 16 років</span>
       <span class="chip sun">🇺🇦 Українська мова навчання</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ DOGGO ══════ -->
+<section class="doggo">
+  <div class="doggo-inner">
+    <div class="doggo-frame">
+      <div class="doggo-photos">
+        <img class="doggo-img tilt-l" src="images_web/doggo.jpg" alt="Анна з Фортусом на галявині" />
+        <img class="doggo-img tilt-r" src="images_web/dog photographer.png" alt="Фортус-фотограф з фотоапаратом" />
+      </div>
+      <div class="doggo-paw p1">🐾</div>
+      <div class="doggo-paw p2">📸</div>
+      <div class="doggo-paw p3">💛</div>
+    </div>
+    <div class="doggo-content">
+      <h3>Знайомтесь — <span>Фортус</span>,<br/>мій супер-помічник 🐶</h3>
+      <p>
+        Це Фортус — мій басенджі, який замість гавкання «розмовляє» поглядом, хитрими вушками і нескінченною любов'ю до кожного учня. Діти чекають на зустріч із ним не менше, ніж на сам урок!
+      </p>
+      <div class="doggo-facts">
+        <div class="doggo-fact">
+          <span class="doggo-fact-icon">👋</span>
+          <p><strong>Вітається з усіма!</strong> На початку уроку він завжди з'являється привітатися з учнем та побажати гарного дня.</p>
+        </div>
+        <div class="doggo-fact">
+          <span class="doggo-fact-icon">📝</span>
+          <p><strong>Слідкує за домашніми!</strong> Не виконав домашку? Песик дізнається першим — і погляд його скаже все за нього.</p>
+        </div>
+        <div class="doggo-fact">
+          <span class="doggo-fact-icon">💖</span>
+          <p><strong>Знімає хвилювання.</strong> Якщо дитина соромиться чи хвилюється — песик розряджає обстановку одразу. Після нього всі посміхаються.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -575,58 +759,102 @@
   </div>
 </section>
 
-<!-- ══════ WHY ══════ -->
-<section class="why" id="why">
-  <div class="why-inner">
-    <div>
-      <span class="section-label">Чому обирають мене</span>
-      <h2 class="section-title">Підхід, який дає результат</h2>
-      <ul class="why-list">
-        <li class="why-item">
-          <div class="why-num">01</div>
-          <div class="why-text">
-            <h4>Правильна методика з першого уроку</h4>
-            <p>Не просто «вчимо слова», а будуємо фундамент: фоніка, звуки, розуміння структури мови.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-num">02</div>
-          <div class="why-text">
-            <h4>Індивідуальний темп і програма</h4>
-            <p>Кожна дитина унікальна. Не підганяю під стандарт — підлаштовуюсь під дитину.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-num">03</div>
-          <div class="why-text">
-            <h4>Авторські матеріали</h4>
-            <p>Власні робочі зошити, картки та вправи — дитина навчається не з нудних підручників.</p>
-          </div>
-        </li>
-        <li class="why-item">
-          <div class="why-num">04</div>
-          <div class="why-text">
-            <h4>Підтримка для батьків</h4>
-            <p>Пояснюю мамам, як продовжити заняття вдома. Результат між уроками — не менш важливий.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div class="why-visual">
-        <p class="why-quote">«Дитина починає говорити не тоді, коли вивчила граматику, а тоді, коли перестала боятися»</p>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">«Дочка ходить до Анни вже 8 місяців. За цей час вивчила алфавіт, читає прості тексти і навіть дивиться мультики англійською без перекладу!»</p>
-          <span class="review-author">— Оксана, мама 6-річної Даші</span>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p class="review-text">«Купила зошит для домашніх занять — зручно, зрозуміло і дитині подобається. Займаємось самостійно кожного дня.»</p>
-          <span class="review-author">— Юлія, мама 5-річного Максима</span>
+<!-- ══════ REVIEWS ══════ -->
+<section class="reviews" id="reviews">
+  <div class="reviews-head">
+    <span class="section-label">Справжні відгуки</span>
+    <h2 class="section-title">Що кажуть батьки учнів</h2>
+    <p class="section-sub"></p>
+  </div>
+  <div class="reviews-grid">
+
+    <!-- Chat 1: мама Ані -->
+    <div class="wa-chat">
+      <div class="wa-header">
+        <div class="wa-avatar">М</div>
+        <div>
+          <div class="wa-name">Мама Ані</div>
+          <div class="wa-child">учениця, початковий рівень</div>
         </div>
       </div>
+      <div class="wa-bubble wa-incoming">
+        Ані дуже сподобалося 🙂 я розумію, що відстаємо дуже, але поки немає можливості займатися 2 рази... Дякуємо Вам 💛 і чекаємо на наступне заняття
+        <span class="wa-time">19:14</span>
+      </div>
+      <span class="wa-reaction">❤️</span>
+      <div class="wa-bubble wa-outgoing">
+        Передайте Ані, що вона молодець та мені також було приємно проводити їй урок 🤗 Тоді, до наступної середи 😌
+        <span class="wa-time">19:19 <span class="wa-checks">✓✓</span></span>
+      </div>
+      <span class="wa-reaction right">❤️</span>
+      <div class="wa-bubble wa-incoming">
+        Вона була щаслива, коли їй передала 🤗
+        <span class="wa-time">19:20</span>
+      </div>
+      <div class="wa-label">Аня — <span>щаслива після кожного уроку</span></div>
     </div>
+
+    <!-- Chat 2: мама Артема -->
+    <div class="wa-chat">
+      <div class="wa-header">
+        <div class="wa-avatar">М</div>
+        <div>
+          <div class="wa-name">Мама Артема</div>
+          <div class="wa-child">учень, продовжує навчання</div>
+        </div>
+      </div>
+      <div class="wa-bubble wa-outgoing">
+        також, хотіла б поцікавитися, чи сподобався Артему урок)
+        <span class="wa-time">15:52 <span class="wa-checks">✓✓</span></span>
+      </div>
+      <div class="wa-bubble wa-incoming">
+        Дякую за матеріали. Так, Артему дуже сподобалось і він каже що хотів би і далі ходити до вас)
+        <span class="wa-time">16:22</span>
+      </div>
+      <span class="wa-reaction">❤️ 🤗</span>
+      <div class="wa-label">Артем — <span>хоче ходити і далі</span></div>
+    </div>
+
+    <!-- Chat 3: мама Насті -->
+    <div class="wa-chat">
+      <div class="wa-header">
+        <div class="wa-avatar">М</div>
+        <div>
+          <div class="wa-name">Мама Насті</div>
+          <div class="wa-child">учениця, перші заняття</div>
+        </div>
+      </div>
+      <div class="wa-bubble wa-outgoing">
+        чи сподобався Насті урок? будемо продовжувати? ☺️
+        <span class="wa-time">12:35 <span class="wa-checks">✓✓</span></span>
+      </div>
+      <div class="wa-bubble wa-incoming">
+        Так сподобався. Будемо продовжувати. І напишіть нам будь-ласка оплату за заняття.
+        <span class="wa-time">15:39</span>
+      </div>
+      <div class="wa-label">Настя — <span>продовжує навчання</span></div>
+    </div>
+
+    <!-- Chat 4: мама Саші -->
+    <div class="wa-chat">
+      <div class="wa-header">
+        <div class="wa-avatar">М</div>
+        <div>
+          <div class="wa-name">Мама Саші</div>
+          <div class="wa-child">учень/учениця</div>
+        </div>
+      </div>
+      <div class="wa-bubble wa-outgoing">
+        На домашній перегляд 🙌
+        <span class="wa-time">13:46 <span class="wa-checks">✓✓</span></span>
+      </div>
+      <div class="wa-bubble wa-incoming">
+        Дякую Вам за урок. Саші дуже сподобалося. Пробачте за незручності
+        <span class="wa-time">13:47</span>
+      </div>
+      <div class="wa-label">Саша — <span>дуже сподобалося</span></div>
+    </div>
+
   </div>
 </section>
 
