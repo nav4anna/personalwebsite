@@ -213,8 +213,8 @@
     .services-head .section-sub { margin: 0 auto; }
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
     }
     .card {
       background: var(--white); border-radius: var(--R);
@@ -239,6 +239,22 @@
       position: absolute; top: 1.2rem; right: 1.2rem;
       font-size: .72rem; font-weight: 800; padding: .2rem .7rem;
       border-radius: 50px; background: var(--sun-l); color: #B8860B;
+    }
+
+    /* services layout with image */
+    .services-layout {
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: 2.5rem; align-items: start;
+    }
+    .services-img {
+      width: 100%; border-radius: var(--R);
+      object-fit: cover; aspect-ratio: 3/4;
+      box-shadow: 0 16px 48px rgba(0,0,0,.1);
+      position: sticky; top: 90px;
+    }
+    @media (max-width: 900px) {
+      .services-layout { grid-template-columns: 1fr; }
+      .services-img { max-width: 360px; margin: 0 auto; position: static; }
     }
 
     /* ── MATERIALS ── */
@@ -534,6 +550,7 @@
       .hero-photo { width: 230px; height: 280px; }
       .hero-float.f1, .hero-float.f2 { display: none; }
       .contact-cards { flex-direction: column; align-items: center; }
+      .cards-grid { grid-template-columns: 1fr; }
       .reviews-grid { grid-template-columns: 1fr; max-width: 400px; }
     }
   </style>
@@ -586,7 +603,7 @@
   <div class="hero-image-wrap">
     <img
       class="hero-photo"
-      src="images_web/hero.jpg"
+      src="images_web/pink jacket.jpg"
       alt="Анна — репетитор англійської"
     />
     <div class="hero-float f1">
@@ -671,33 +688,51 @@
     <h2 class="section-title">Мої послуги</h2>
     <p class="section-sub">Кожна дитина — особлива. Тому підбираю формат і темп під конкретну дитину.</p>
   </div>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-icon coral">📝</div>
-      <div class="card-tag">Популярне</div>
-      <h3>Індивідуальні уроки</h3>
-      <p>Персональні заняття онлайн для дітей та підлітків. Будуємо програму з нуля або продовжуємо шкільний матеріал — залежно від потреб дитини.</p>
+  <div class="services-layout">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon coral">📝</div>
+        <div class="card-tag">Популярне</div>
+        <h3>Індивідуальні уроки</h3>
+        <p>Персональні заняття онлайн для дітей та підлітків. Будуємо програму з нуля або продовжуємо шкільний матеріал — залежно від потреб дитини.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon sky">👥</div>
+        <h3>Групове навчання</h3>
+        <p>Заняття у міні-групах по 3–5 дітей. Спілкування з однолітками мотивує вчитися, а формат дозволяє тренувати діалоги та командну роботу.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon mint">📖</div>
+        <h3>Навчання читати</h3>
+        <p>Авторська система навчання читанню: фоніка, звуки, розуміння структури мови. Від перших букв до самостійного читання книжок.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon sun">🏫</div>
+        <h3>Підготовка до школи</h3>
+        <p>Готую дітей 4–6 років до шкільної програми: алфавіт, звуки, базові слова та перші речення — в ігровій формі.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon lav">💬</div>
+        <h3>Розмовний клуб</h3>
+        <p>Регулярні зустрічі, де діти говорять англійською на цікаві теми. Без підручників, без оцінок — тільки жива мова і впевненість.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon coral">📚</div>
+        <h3>Читацький клуб для підлітків</h3>
+        <p>Читаємо книги англійською, обговорюємо сюжет, вчимо нову лексику. Для тих, хто хоче більше, ніж просто уроки.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon mint">🎮</div>
+        <h3>Ігрові заняття (3–6 р.)</h3>
+        <p>Перші слова, кольори, цифри та вірші — через пісні, картки та ігри. Дитина вчиться без стресу й з задоволенням.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon sun">🏠</div>
+        <h3>Підтримка мам</h3>
+        <p>Допомагаю організувати самостійне навчання вдома: покрокові рекомендації, матеріали та відповіді на ваші запитання.</p>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon sky">🏫</div>
-      <h3>Підготовка до школи</h3>
-      <p>Готую дітей 4–6 років до шкільної програми: вчимо алфавіт, звуки, базові слова та перші речення — в ігровій формі.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon mint">📖</div>
-      <h3>Навчання читати</h3>
-      <p>Авторська система навчання читанню. Дитина не просто запам'ятовує букви — вона розуміє, як мова «звучить». Від звуків до перших книжок.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon sun">🏠</div>
-      <h3>Підтримка мам</h3>
-      <p>Допомагаю мамам організувати самостійне навчання вдома: покрокові рекомендації, матеріали та відповіді на ваші запитання.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon lav">🎮</div>
-      <h3>Ігрові заняття (3–6 р.)</h3>
-      <p>Перші слова, кольори, цифри та вірші — через пісні, картки та ігри. Дитина вчиться без стресу й з великим задоволенням.</p>
-    </div>
+    <img class="services-img" src="images_web/at home.jpg" alt="Анна проводить онлайн-урок" />
   </div>
 </section>
 
